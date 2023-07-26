@@ -25,6 +25,7 @@ class Application extends Nullstack {
       <div>
         Outside Component
         <button onclick={this.toggleMounted}>Toggle Mounted</button>
+        <button onclick={this.onClick}>Nullstack Counter {this.counter}</button>
         {this.mounted && (
           <ReactComponent title={`NullStack counter going to React: ${this.counter}`} onClick={this.onClick}>
             Component children

@@ -8,7 +8,7 @@
     "nullstack": "~0.17.0"
   },
   "scripts": {
-    "start": "npx nullstack start --mode=spa",
+    "start": "npx nullstack start --mode=ssr",
     "build": "npx nullstack build"
   },
   "dependencies": {
