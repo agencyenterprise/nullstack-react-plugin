@@ -2,6 +2,7 @@ import Nullstack from 'nullstack'
 
 import './Application.css'
 import { ReactComponent } from './react/ReactComponent'
+import FunctionalComponent from './FunctionalComponent'
 
 class Application extends Nullstack {
 
@@ -20,6 +21,16 @@ class Application extends Nullstack {
     this.mounted = !this.mounted
   }
 
+  initiate(context) {
+    context.coolContextVariable = "I'm a cool context variable! Look at me!"
+  }
+
+  renderInnerComponent() {
+    return <>
+      <FunctionalComponent/>
+    </>
+  }
+
   render() {
     return (
       <div>
@@ -27,9 +38,12 @@ class Application extends Nullstack {
         <button onclick={this.toggleMounted}>Toggle Mounted</button>
         <button onclick={this.onClick}>Nullstack Counter {this.counter}</button>
         {this.mounted && (
+          <>
           <ReactComponent title={`NullStack counter going to React: ${this.counter}`} onClick={this.onClick}>
             Component children
           </ReactComponent>
+          <InnerComponent/>
+          </>
         )}
       </div>
     )
