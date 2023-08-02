@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { createPlugin } from './createPlugin'
-import ReactServerWrapper from './ReactServerWrapper'
+import { createPlugin } from './src/createPlugin'
+import ReactServerWrapper from './src/ReactServerWrapper'
 
 const transform = createPlugin({
   renderWrapper(component, attributes) {

@@ -1,17 +1,11 @@
 {
-  "name": "react-plugin",
+  "name": "nullstack-react-plugin",
   "version": "0.0.1",
   "description": "",
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "nullstack": "~0.17.0"
-  },
-  "scripts": {
-    "start": "npx nullstack start --mode=ssr",
-    "build": "npx nullstack build"
-  },
-  "dependencies": {
+  "peerDependencies": {
+    "nullstack": "~0.17.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   }

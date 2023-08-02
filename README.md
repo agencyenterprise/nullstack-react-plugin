@@ -1,30 +1,73 @@
-# React Plugin
+# Nullstack React Plugin
 
 Plugin to allow for React components to be used within Nullstack.
 
-<img src='https://raw.githubusercontent.com/nullstack/nullstack/master/nullstack.png' height='60' alt='Nullstack' />
+## Getting Started
 
-## How to run this Project
+1. Install the package using the GitHub url like:
 
-Install the dependencies:
-
-`npm install`
-
-Copy the environment sample to a .env file
-
-```sh
-NULLSTACK_PROJECT_NAME="[dev] React Plugin"
-NULLSTACK_PROJECT_DOMAIN="localhost"
-NULLSTACK_PROJECT_COLOR="#D22365"
-NULLSTACK_SERVER_PORT="3000"
+```
+yarn add 'git+ssh://git@github.com:agencyenterprise/nullstack-react-plugin.git#v{VERSION_NUMBER}'
 ```
 
-Run the app in development mode:
+2. Add the plugin to your `server` and `client` files:
 
-`npm start`
+### Client:
 
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```javascript
+// client.js
+import Nullstack from "nullstack";
 
-## Learn more about Nullstack
+import Application from "./src/Application";
+import reactClientPlugin from "nullstack-react-plugin/client";
 
-[Read the documentation](https://nullstack.app/documentation)
+Nullstack.use(reactClientPlugin);
+const context = Nullstack.start(Application);
+
+context.start = async function start() {
+  // https://nullstack.app/application-startup
+};
+
+export default context;
+```
+
+### Server:
+
+```javascript
+// server.js
+import Nullstack from "nullstack";
+
+import Application from "./src/Application";
+import reactServerPlugin from "nullstack-react-plugin/server";
+
+Nullstack.use(reactServerPlugin);
+const context = Nullstack.start(Application);
+
+context.start = async function start() {
+  // https://nullstack.app/application-startup
+};
+
+export default context;
+```
+
+3. Extend your Webpack configuration from the plugin:
+
+```javascript
+// webpack.config.js
+const [server, client] = require("nullstack-react-plugin/webpack.config");
+
+module.exports = [server, client];
+```
+
+3. Create your React components under a `src/react` folder and use them normally
+
+## Examples
+
+You can find an example app [here](./examples/nullstack-app).
+
+## Developing locally
+
+**I'm seeing `TypeError: Cannot read properties of null (reading 'useEffect')`, what should I do?**
+
+This error is caused when you have packages linked with `yarn link` and packages installed inside the "link", meaning it copies the `node_modules` folder from your lib into the example app.
+Erasing the `node_modules` folder from the lib (at the root folder) should solve the issue.

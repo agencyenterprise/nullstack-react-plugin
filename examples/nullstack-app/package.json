@@ -1,0 +1,17 @@
+{
+  "name": "react-plugin",
+  "version": "0.0.1",
+  "description": "",
+  "author": "",
+  "license": "ISC",
+  "scripts": {
+    "start": "npx nullstack start --mode=ssr",
+    "build": "npx nullstack build"
+  },
+  "dependencies": {
+    "nullstack": "~0.17.0",
+    "nullstack-react-plugin": "file:../../",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  }
+}

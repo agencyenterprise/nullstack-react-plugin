@@ -1,7 +1,7 @@
 import Nullstack from "nullstack";
 
 import Application from "./src/Application";
-import reactClientPlugin from "./src/plugin/react-client-plugin";
+import reactClientPlugin from "nullstack-react-plugin/client";
 
 Nullstack.use(reactClientPlugin);
 const context = Nullstack.start(Application);
