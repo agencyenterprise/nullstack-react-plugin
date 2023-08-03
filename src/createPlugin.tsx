@@ -29,6 +29,7 @@ export function createPlugin(options: CreatePluginOptions) {
       } catch (err) {
         if (!errorIsComingFromPreactComponent(err)) {
           error = err
+          node.type.__useReact = false
         }
       }
 
@@ -37,10 +38,6 @@ export function createPlugin(options: CreatePluginOptions) {
 
     if (!node.type.__useReact) {
       tryReactRender(Tester, node.attributes, node.children)
-    }
-
-    if (error) {
-      throw error
     }
 
     if (node.type.__useReact && !node.type.__useReactInstance) {
@@ -55,6 +52,8 @@ export function createPlugin(options: CreatePluginOptions) {
               [currentKey]: context[currentKey],
             }
           }, {})
+
+          // console.log("KEYS - ", keys, ': COMPONENT', Component, attributes)
 
           return renderWrapper(Component, attributes)
         }
@@ -86,7 +85,7 @@ export function createPlugin(options: CreatePluginOptions) {
   return (options) => {
     const { node } = options
 
-    if (Array.isArray(node.children)) {
+    if (node && Array.isArray(node.children)) {
       node.children?.forEach(checkIfReact)
     }
   }
