@@ -53,8 +53,6 @@ export function createPlugin(options: CreatePluginOptions) {
             }
           }, {})
 
-          // console.log("KEYS - ", keys, ': COMPONENT', Component, attributes)
-
           return renderWrapper(Component, attributes)
         }
       
