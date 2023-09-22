@@ -41,22 +41,13 @@ export function createPlugin(options: CreatePluginOptions) {
     }
 
     if (node.type.__useReact && !node.type.__useReactInstance) {
-      const keys = Object.keys(node.attributes)
       const Component = node.type
       node.type.__useReactInstance = class ReactEntrypoint extends Nullstack {
 
         render(context) {
-          const attributes = keys.reduce((prev, currentKey) => {
-            return {
-              ...prev,
-              [currentKey]: context[currentKey],
-            }
-          }, {})
-
-          return renderWrapper(Component, attributes)
+          return renderWrapper(Component, context)
         }
-      
-}
+      }
     }
 
     if (node.type.__useReactInstance) {
@@ -64,7 +55,6 @@ export function createPlugin(options: CreatePluginOptions) {
     }
   }
 
-  // const slotName = (str) => str.trim().replace(/[-_]([a-z])/g, (_, w) => w.toUpperCase())
   const reactTypeof = Symbol.for('react.element')
 
   function errorIsComingFromPreactComponent(err) {

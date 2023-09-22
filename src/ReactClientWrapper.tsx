@@ -41,8 +41,8 @@ class ReactClientWrapper extends Nullstack<ReactWrapperProps> {
     }
   }
 
-  render() {
-    return <div ref={this.rootRef} />
+  render(context) {
+    return <div ref={this.rootRef} class={context.attributes['data-wrapper-class']} />
   }
 
 }

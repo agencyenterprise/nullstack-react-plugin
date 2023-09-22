@@ -24,7 +24,7 @@ class ReactServerWrapper extends Nullstack<ReactWrapperProps> {
   }
 
   render() {
-    return <div ref={this.rootRef} html={this.innerHtml} />
+    return <div ref={this.rootRef} html={this.innerHtml} class={context.attributes['data-wrapper-class']} />
   }
 
 }
