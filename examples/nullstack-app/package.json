@@ -5,13 +5,14 @@
   "author": "",
   "license": "ISC",
   "scripts": {
-    "start": "npx nullstack start --mode=ssr",
-    "build": "npx nullstack build"
+    "start": "RUST_BACKTRACE=1 npx nullstack start",
+    "build": "npx nullstack build",
+    "plugin:reinstall": "yarn remove nullstack-react-plugin && yarn add file:../../"
   },
   "dependencies": {
-    "nullstack": "~0.17.0",
+    "nullstack": "0.19.3",
     "nullstack-react-plugin": "file:../../",
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
   }
 }

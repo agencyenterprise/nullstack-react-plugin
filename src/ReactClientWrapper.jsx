@@ -1,21 +1,16 @@
-import Nullstack, { NullstackClientContext } from 'nullstack'
+import Nullstack from 'nullstack'
 
 import React from 'react'
 import ReactDomClient from 'react-dom/client'
 
-interface ReactWrapperProps {
-  component: any
-  attributes: any
-}
-
-class ReactClientWrapper extends Nullstack<ReactWrapperProps> {
+class ReactClientWrapper extends Nullstack {
 
   rootRef = null
-  reactRoot: any = null
-  innerHtml: any = null
+  reactRoot = null
+  innerHtml = null
   serverRendered = false
 
-  async initiate(context: NullstackClientContext<ReactWrapperProps>) {
+  async initiate(context) {
     const { environment, component, attributes } = context
 
     if (environment.server) {
@@ -26,7 +21,7 @@ class ReactClientWrapper extends Nullstack<ReactWrapperProps> {
     }
   }
 
-  update({ component, attributes }: NullstackClientContext<ReactWrapperProps>) {
+  update({ component, attributes }) {
     if (this.reactRoot) {
       this.reactRoot.render(React.createElement(component, attributes))
     } else {

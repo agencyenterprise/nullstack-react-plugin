@@ -1,7 +1,5 @@
 const [server, client] = require("nullstack/webpack.config");
 
-const path = require("path");
-
 function swc(options, other) {
   const config = {
     test: other.test,
@@ -26,11 +24,11 @@ function swc(options, other) {
     config.use.options.jsc.parser[other.template] = true;
   }
 
-  config.use.options.jsc.transform = {
-    // react: {
-    //   throwIfNamespace: true,
-    // },
-  };
+  // config.use.options.jsc.transform = {
+  // react: {
+  //   throwIfNamespace: true,
+  // },
+  // };
 
   return config;
 }

@@ -1,12 +1,22 @@
 {
   "name": "nullstack-react-plugin",
   "version": "0.0.1",
-  "description": "",
+  "description": "React integration plugin for Nullstack applications",
   "author": "",
   "license": "ISC",
   "peerDependencies": {
-    "nullstack": "~0.17.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "nullstack": "~0.19.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "18.3.1",
+    "@types/react-dom": "18.3.1",
+    "nullstack": "~0.19.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }
