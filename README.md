@@ -59,7 +59,7 @@ const [server, client] = require("nullstack-react-plugin/webpack.config");
 module.exports = [server, client];
 ```
 
-3. Create your React components under a `src/react` folder and use them normally and manually import React into them like `import React from 'react'`.
+3. Create your React components under a `src/react` folder and use them normally. Make sure you manually import React into them like `import React from 'react'`.
 
 ## Examples
 
