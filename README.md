@@ -59,11 +59,16 @@ const [server, client] = require("nullstack-react-plugin/webpack.config");
 module.exports = [server, client];
 ```
 
-3. Create your React components under a `src/react` folder and use them normally
+3. Create your React components under a `src/react` folder and use them normally and manually import React into them like `import React from 'react'`.
 
 ## Examples
 
 You can find an example app [here](./examples/nullstack-app).
+
+## Troubleshooting
+
+### `TypeError: Cannot read properties of null (reading 'useEffect')`
+Make sure you have React imported into the files you're using it, like `import React from 'react'`.
 
 ## Developing locally
 
